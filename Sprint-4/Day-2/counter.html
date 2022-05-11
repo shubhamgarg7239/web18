@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* border: 1px solid blue; */
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 30%;
+            margin: 100px auto;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+        }
+
+        h1 {
+            border: 1px solid rgb(87, 112, 221);
+            height: 50px;
+            width: 200px;
+        }
+
+        button {
+            height: 50px;
+            /* vertical-align: middle; */
+            background-color: rgb(133, 190, 228);
+            color: white;
+            border:none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button id="btn1">Increse</button>
+        <h1>0</h1>
+        <button id="btn2">Decrese</button>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    document.querySelector("#btn1").addEventListener("click", increaseFun)
+    var sum = JSON.parse(localStorage.getItem("counter")) || 0;
+    function increaseFun() {
+        // console.log("Hello")
+        sum = sum + 1;
+        localStorage.setItem("counter", (sum));
+        console.log(sum);
+        console.log(typeof (sum));
+
+        document.querySelector("h1").innerText = JSON.parse(localStorage.getItem("counter"));
+        // window.location.reload() ;
+    }
+    
+    document.querySelector("#btn2").addEventListener("click", decreaseFun);
+
+    
+    function decreaseFun() {
+        sum = sum - 1;
+
+        localStorage.setItem("counter", JSON.stringify(sum));
+        // console.log(sum);
+        // console.log(typeof(sum));
+        document.querySelector("h1").innerText = JSON.parse(localStorage.getItem("counter"));
+   }
+   document.querySelector("h1").innerText = JSON.parse(localStorage.getItem("counter"));
+</script>
