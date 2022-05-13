@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+        #container {
+            width: 32%;
+            margin: 100px auto;
+            /* text-align: center; */
+
+        }
+
+        img {
+
+            display: block;
+            margin: auto;
+            /* text-align: center; */
+        }
+
+        #box {
+            /* border: 1px solid red; */
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+            padding: 10px 0px;
+            border-radius: 20px;
+
+        }
+
+        #box>div {
+            /* border: 1px solid blue; */
+            width: 90%;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            /* border: 1px solid; */
+            display: block;
+        }
+
+        input {
+            margin-bottom: 42px;
+            height: 30px;
+            width: 98%;
+            border-radius: 6px;
+        }
+
+        #submit {
+            height: 40px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        #submit:hover {
+            color: white;
+            background-color: blue;
+            border-color: white;
+            border-radius: 8px;
+            height: 40px;
+        }
+
+        /* label {
+            display: block;
+            align-items: center;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <img src="https://sso.masaischool.com/brand_dark.svg" alt="MasaiImage">
+
+
+        <div id="box">
+
+            <div>
+
+                <h2>Sign Up</h2>
+                <form id="form">
+                    <label for="name">Full Name</label> <br>
+                    <input id="name" type="text" placeholder="Enter Your Full Name" required> <br>
+
+                    <label for="email">Email</label> <br>
+                    <input id="email" type="email" placeholder="Enter Email" required> <br>
+
+                    <label for="password">Password</label> <br>
+                    <input id="password" type="password" placeholder="Enter Password" required>
+                    <p>By siging up. I accept the Masai School <a href="https://masaischool.com/terms">Terms of
+                            Service</a> and acknowledge the <a href="https://masaischool.com/privacy">privacy Policy</a>
+                    </p>
+                    <input id="submit" type="submit" value="SIGN UP" required>
+                </form>
+                <p style="text-align: center;">Already have an account <a href="login.html">Sign In</a> </p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit", submitFun)
+    var formArr =JSON.parse(localStorage.getItem("formData")) || [];
+
+    function submitFun() {
+        event.preventDefault();
+        var formObj = {
+            Name: form.name.value,
+            Email: form.email.value,
+            Password: form.password.value
+        }
+        formArr.push(formObj) ;
+    
+        localStorage.setItem("formData", JSON.stringify(formArr)) ;
+        window.location.href ="login.html"
+
+    }
+</script>
